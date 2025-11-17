@@ -36,10 +36,10 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="text-2xl font-bold bg-gradient-accent bg-clip-text text-transparent">
-              Rendr
+            <div className="text-2xl md:text-3xl font-black tracking-wider">
+              <span className="text-gradient">REND</span>
+              <span className="text-white"> R</span>
             </div>
-            <div className="text-2xl font-light text-foreground">Media</div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -62,8 +62,8 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/contact">
-              <Button className="bg-gradient-accent hover:shadow-glow transition-all duration-300">
-                Start Your Project
+              <Button className="bg-[hsl(var(--rendr-purple))] hover:bg-[hsl(var(--rendr-purple))]/90 text-white font-bold shadow-[0_4px_12px_rgba(136,61,245,0.4)] hover:shadow-[0_6px_20px_rgba(136,61,245,0.6)] transition-all duration-300">
+                Start Project
               </Button>
             </Link>
           </div>

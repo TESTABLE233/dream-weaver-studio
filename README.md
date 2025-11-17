@@ -1,73 +1,144 @@
-# Welcome to your Lovable project
+# 🎨 Rendr Media - Creative Agency Website
 
-## Project info
+A bold, energetic creative agency website built with React, TypeScript, Vite, and Tailwind CSS. Features striking visuals, smooth animations, and a brand-aligned design system.
 
-**URL**: https://lovable.dev/projects/213c324e-a6fe-4e9b-aefd-2b07c58761a1
+## ✨ Features
 
-## How can I edit this code?
+### Core Pages
+- **Home** - Hero section with animated gradients, services preview, and portfolio teaser
+- **Portfolio** - Filterable project gallery with 7 categories
+- **Portfolio Detail** - Case study format with challenge, solution, tools, and results
+- **Services** - 6 service offerings with detailed features and process timeline
+- **About** - Company story, values, and statistics
+- **Contact** - Multi-step enquiry form with progress indicator
 
-There are several ways of editing your application.
+### Design System
+- **Brand Colors**:
+  - Warm Orange (#F2B24C) - Primary actions and highlights
+  - Vibrant Purple (#883DF5) - CTAs and accents
+  - Deep Red (#C0151A) - Shadows and contrast
+  - Off-Black (#141414) - Background
+  
+- **Typography**: Bold, black weight headings with gradient text effects
+- **Animations**: Fade-in, scale, slide, float, and pulse animations
+- **Shadows**: Custom glow effects matching brand colors
 
-**Use Lovable**
+### Key Components
+- Sticky navigation with scroll effects
+- Multi-step contact form with validation
+- Category filtering for portfolio
+- Responsive mobile menu
+- Brand-aligned footer with social links
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/213c324e-a6fe-4e9b-aefd-2b07c58761a1) and start prompting.
+## 🚀 Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
+- Node.js 18+ or Bun
+- npm, yarn, or bun
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Install dependencies
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+## 🌐 Deploy for Free
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Deploy your site in 2 minutes:
 
-**Use GitHub Codespaces**
+```bash
+# Install Vercel CLI
+npm install -g vercel
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Deploy to production
+vercel --prod
+```
 
-## What technologies are used for this project?
+**See [QUICK_DEPLOY.md](QUICK_DEPLOY.md) for detailed deployment instructions.**
 
-This project is built with:
+### Deployment Options
+- ⭐ **Vercel** (Recommended) - 2 minutes, automatic deployments
+- **Netlify** - 3 minutes, form handling included
+- **GitHub Pages** - 5 minutes, unlimited bandwidth
+- **Cloudflare Pages** - 3 minutes, fastest CDN
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+All options are **100% free** with custom domain support!
 
-## How can I deploy this project?
+## 📁 Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/213c324e-a6fe-4e9b-aefd-2b07c58761a1) and click on Share -> Publish.
+```
+src/
+├── components/
+│   ├── ui/              # shadcn/ui components
+│   ├── Navbar.tsx       # Navigation with scroll effects
+│   └── Footer.tsx       # Brand-aligned footer
+├── pages/
+│   ├── Home.tsx         # Hero + services + portfolio preview
+│   ├── Portfolio.tsx    # Filterable project grid
+│   ├── PortfolioDetail.tsx  # Case study pages
+│   ├── Services.tsx     # Service offerings + process
+│   ├── About.tsx        # Company info + values
+│   └── Contact.tsx      # Multi-step enquiry form
+├── data/
+│   └── portfolio.ts     # Portfolio items data
+├── App.tsx              # Router setup
+├── index.css            # Brand colors + utilities
+└── main.tsx             # App entry point
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 🎨 Customization
 
-Yes, you can!
+### Brand Colors
+Edit `src/index.css` to update the color scheme:
+```css
+--rendr-orange: 35 85% 62%;
+--rendr-purple: 262 89% 60%;
+--rendr-red: 356 78% 42%;
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Portfolio Items
+Add/edit projects in `src/data/portfolio.ts`
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Services
+Update service offerings in `src/pages/Services.tsx`
+
+## 🛠️ Tech Stack
+
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **Tailwind CSS** - Styling
+- **shadcn/ui** - UI components
+- **React Router** - Navigation
+- **Lucide React** - Icons
+- **Sonner** - Toast notifications
+
+## 📱 Responsive Design
+
+Fully responsive across:
+- Mobile (320px+)
+- Tablet (768px+)
+- Desktop (1024px+)
+- Large screens (1440px+)
+
+## 🎯 Performance
+
+- Optimized animations with CSS transforms
+- Lazy loading for images
+- Code splitting with React Router
+- Minimal bundle size with Vite
+
+## 📄 License
+
+MIT License - feel free to use for your projects!
+
+---
+
+Built with ❤️ by Rendr Media

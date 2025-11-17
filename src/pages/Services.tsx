@@ -1,195 +1,201 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Palette, Sparkles, Video, Camera, TrendingUp, Users, ArrowRight, Check } from "lucide-react";
+import { Palette, Camera, Video, Megaphone, Smartphone, Sparkles, ArrowRight } from "lucide-react";
+
+const services = [
+  {
+    icon: <Palette className="w-12 h-12" />,
+    title: "Branding & Identity",
+    description: "Create a bold, memorable brand that stands out from the competition",
+    features: [
+      "Logo Design & Brand Guidelines",
+      "Visual Identity Systems",
+      "Brand Strategy & Positioning",
+      "Packaging Design",
+      "Brand Collateral",
+    ],
+    color: "orange",
+  },
+  {
+    icon: <Sparkles className="w-12 h-12" />,
+    title: "Graphic Design",
+    description: "Eye-catching designs that communicate your message effectively",
+    features: [
+      "Marketing Materials",
+      "Social Media Graphics",
+      "Print Design",
+      "Infographics",
+      "Presentation Design",
+    ],
+    color: "purple",
+  },
+  {
+    icon: <Camera className="w-12 h-12" />,
+    title: "Photography",
+    description: "Professional photography that captures your brand's essence",
+    features: [
+      "Product Photography",
+      "Event Coverage",
+      "Corporate Headshots",
+      "Food Photography",
+      "Lifestyle & Brand Photography",
+    ],
+    color: "red",
+  },
+  {
+    icon: <Video className="w-12 h-12" />,
+    title: "Videography",
+    description: "Compelling video content that tells your story and engages audiences",
+    features: [
+      "Brand Videos",
+      "Product Demos",
+      "Event Videography",
+      "Social Media Videos",
+      "Corporate Videos",
+    ],
+    color: "orange",
+  },
+  {
+    icon: <Smartphone className="w-12 h-12" />,
+    title: "UI/UX Design",
+    description: "User-centered digital experiences that convert and delight",
+    features: [
+      "Website Design",
+      "Mobile App Design",
+      "User Research",
+      "Prototyping & Testing",
+      "Design Systems",
+    ],
+    color: "purple",
+  },
+  {
+    icon: <Megaphone className="w-12 h-12" />,
+    title: "Digital Marketing",
+    description: "Strategic campaigns that drive results and grow your brand",
+    features: [
+      "Social Media Management",
+      "Content Strategy",
+      "Advertising Campaigns",
+      "Email Marketing",
+      "Analytics & Reporting",
+    ],
+    color: "red",
+  },
+];
 
 const Services = () => {
-  const services = [
-    {
-      icon: Palette,
-      title: "Branding & Identity",
-      description: "Build a powerful brand that stands out and resonates with your target audience.",
-      features: [
-        "Logo Design & Brand Guidelines",
-        "Visual Identity Systems",
-        "Brand Strategy & Positioning",
-        "Packaging Design",
-        "Print Collateral"
-      ],
-      priceRange: "Starting from ₹25,000",
-    },
-    {
-      icon: Sparkles,
-      title: "UI/UX Design",
-      description: "Create intuitive and beautiful digital experiences that users love.",
-      features: [
-        "Website & App Design",
-        "User Research & Testing",
-        "Wireframing & Prototyping",
-        "Design Systems",
-        "Responsive Design"
-      ],
-      priceRange: "Starting from ₹40,000",
-    },
-    {
-      icon: Video,
-      title: "Video Production",
-      description: "Cinematic storytelling that captures attention and drives engagement.",
-      features: [
-        "Brand Films & Commercials",
-        "Event Coverage",
-        "Product Videos",
-        "Social Media Content",
-        "Post-Production & Editing"
-      ],
-      priceRange: "Starting from ₹50,000",
-    },
-    {
-      icon: Camera,
-      title: "Photography",
-      description: "Stunning visuals that showcase your products, events, and brand story.",
-      features: [
-        "Product Photography",
-        "Event & Corporate",
-        "Lifestyle & Fashion",
-        "Food Photography",
-        "Image Retouching"
-      ],
-      priceRange: "Starting from ₹15,000",
-    },
-    {
-      icon: TrendingUp,
-      title: "Digital Marketing",
-      description: "Data-driven strategies to grow your online presence and drive results.",
-      features: [
-        "Social Media Advertising",
-        "Google Ads Management",
-        "SEO Optimization",
-        "Email Marketing",
-        "Analytics & Reporting"
-      ],
-      priceRange: "Starting from ₹20,000/month",
-    },
-    {
-      icon: Users,
-      title: "Social Media Management",
-      description: "Build and engage your community with strategic content and community management.",
-      features: [
-        "Content Strategy & Planning",
-        "Daily Posts & Stories",
-        "Community Management",
-        "Influencer Partnerships",
-        "Performance Analytics"
-      ],
-      priceRange: "Starting from ₹25,000/month",
-    },
-  ];
-
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            Our <span className="bg-gradient-accent bg-clip-text text-transparent">Services</span>
+      {/* Header */}
+      <section className="py-16 bg-gradient-to-br from-[hsl(var(--rendr-black))] to-[hsl(0_0%_12%)]">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-7xl font-black mb-6 animate-fade-in">
+            <span className="text-white">Our</span> <span className="text-gradient">Services</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive creative solutions to elevate your brand and drive growth
+          <p className="text-xl text-[hsl(var(--rendr-gray))] max-w-3xl mx-auto animate-fade-in-delay">
+            Full-spectrum creative services to elevate your brand and drive results
           </p>
         </div>
+      </section>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className="group hover:shadow-strong transition-all duration-300 hover:-translate-y-2 animate-scale-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardContent className="p-8">
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="p-4 bg-gradient-accent rounded-xl text-white group-hover:shadow-glow transition-all duration-300 flex-shrink-0">
-                    <service.icon size={32} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    <Badge variant="secondary" className="mb-3">
-                      {service.priceRange}
-                    </Badge>
-                  </div>
+      {/* Services Grid */}
+      <section className="py-16 bg-[hsl(var(--rendr-black))]">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group relative bg-[hsl(0_0%_12%)] rounded-2xl p-8 border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-${service.color}))] transition-all duration-300 hover:shadow-[0_8px_32px_rgba(136,61,245,0.3)] animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Icon */}
+                <div className={`text-[hsl(var(--rendr-${service.color}))] mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  {service.icon}
                 </div>
-                
-                <p className="text-muted-foreground mb-6">
-                  {service.description}
-                </p>
 
-                <div className="space-y-3 mb-6">
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+
+                {/* Description */}
+                <p className="text-[hsl(var(--rendr-gray))] mb-6">{service.description}</p>
+
+                {/* Features */}
+                <ul className="space-y-3 mb-6">
                   {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start">
-                      <Check className="mr-2 mt-0.5 text-primary flex-shrink-0" size={20} />
-                      <span className="text-sm">{feature}</span>
-                    </div>
+                    <li key={idx} className="flex items-start space-x-2">
+                      <div className={`w-1.5 h-1.5 rounded-full bg-[hsl(var(--rendr-${service.color}))] mt-2 flex-shrink-0`}></div>
+                      <span className="text-sm text-[hsl(var(--rendr-gray))]">{feature}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
-                <Link to="/contact">
-                  <Button className="w-full bg-gradient-accent hover:shadow-glow">
-                    Get Started
-                    <ArrowRight className="ml-2" size={20} />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Process Section */}
-        <section className="py-16 px-8 bg-gradient-subtle rounded-2xl animate-fade-in">
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Our <span className="bg-gradient-accent bg-clip-text text-transparent">Process</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { step: "01", title: "Discovery", desc: "Understanding your goals and vision" },
-              { step: "02", title: "Strategy", desc: "Crafting the perfect approach" },
-              { step: "03", title: "Creation", desc: "Bringing ideas to life" },
-              { step: "04", title: "Delivery", desc: "Launch and ongoing support" },
-            ].map((item, index) => (
-              <div key={index} className="text-center animate-fade-in-delay" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
+                {/* CTA */}
+                <Button
+                  asChild
+                  variant="ghost"
+                  className={`w-full text-[hsl(var(--rendr-${service.color}))] hover:bg-[hsl(var(--rendr-${service.color}))]/10 group/btn`}
+                >
+                  <Link to="/contact" className="flex items-center justify-center space-x-2">
+                    <span>Get Started</span>
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="mt-16 text-center">
-          <Card className="bg-gradient-hero text-white border-none">
-            <CardContent className="p-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Start Your Project?
-              </h2>
-              <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-                Let's discuss your needs and create a custom solution that fits your budget and goals.
-              </p>
-              <Link to="/contact">
-                <Button size="lg" className="bg-white text-secondary hover:bg-white/90 text-lg px-8 py-6 h-auto">
-                  Get a Free Consultation
-                  <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-        </section>
-      </div>
+      {/* Process Section */}
+      <section className="py-16 bg-gradient-to-b from-[hsl(var(--rendr-black))] to-[hsl(0_0%_12%)]">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-4">
+              <span className="text-white">Our</span> <span className="text-gradient">Process</span>
+            </h2>
+            <p className="text-xl text-[hsl(var(--rendr-gray))] max-w-2xl mx-auto">
+              A proven approach to delivering exceptional results
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {[
+              { step: "01", title: "Discovery", description: "Understanding your goals, audience, and vision" },
+              { step: "02", title: "Strategy", description: "Crafting a creative approach tailored to your needs" },
+              { step: "03", title: "Creation", description: "Bringing ideas to life with bold execution" },
+              { step: "04", title: "Delivery", description: "Launching your project and measuring success" },
+            ].map((phase, index) => (
+              <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="text-6xl font-black text-gradient mb-4">{phase.step}</div>
+                <h3 className="text-xl font-bold text-white mb-2">{phase.title}</h3>
+                <p className="text-[hsl(var(--rendr-gray))]">{phase.description}</p>
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-[hsl(var(--rendr-orange))] to-[hsl(var(--rendr-purple))]"></div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-[hsl(var(--rendr-purple))]/10 to-[hsl(var(--rendr-orange))]/10">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            <span className="text-white">Ready to Get</span> <span className="text-gradient">Started?</span>
+          </h2>
+          <p className="text-xl text-[hsl(var(--rendr-gray))] mb-8 max-w-2xl mx-auto">
+            Let's discuss your project and create something amazing together
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="bg-[hsl(var(--rendr-purple))] hover:bg-[hsl(var(--rendr-purple))]/90 text-white font-bold text-lg px-12 py-6 shadow-[0_8px_24px_rgba(136,61,245,0.5)]"
+          >
+            <Link to="/contact">Start Your Project</Link>
+          </Button>
+        </div>
+      </section>
     </div>
   );
 };

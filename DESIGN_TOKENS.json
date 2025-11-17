@@ -1,0 +1,318 @@
+{
+  "brand": {
+    "name": "Rendr Media",
+    "tagline": "Passion Rendered for Your Brand",
+    "personality": ["Bold", "Energetic", "Creative", "Youthful", "Professional"]
+  },
+  "colors": {
+    "primary": {
+      "orange": {
+        "hex": "#F2B24C",
+        "rgb": "rgb(242, 178, 76)",
+        "hsl": "hsl(35, 85%, 62%)",
+        "usage": "Primary CTAs, highlights, hover states, category labels"
+      },
+      "purple": {
+        "hex": "#883DF5",
+        "rgb": "rgb(136, 61, 245)",
+        "hsl": "hsl(262, 89%, 60%)",
+        "usage": "Main CTAs, section titles, links, progress indicators"
+      },
+      "red": {
+        "hex": "#C0151A",
+        "rgb": "rgb(192, 21, 26)",
+        "hsl": "hsl(356, 78%, 42%)",
+        "usage": "Shadows, borders, separators, warning states"
+      }
+    },
+    "neutral": {
+      "black": {
+        "hex": "#141414",
+        "rgb": "rgb(20, 20, 20)",
+        "hsl": "hsl(0, 0%, 8%)",
+        "usage": "Main background"
+      },
+      "darkGray": {
+        "hex": "#1F1F1F",
+        "rgb": "rgb(31, 31, 31)",
+        "hsl": "hsl(0, 0%, 12%)",
+        "usage": "Card backgrounds"
+      },
+      "mediumGray": {
+        "hex": "#333333",
+        "rgb": "rgb(51, 51, 51)",
+        "hsl": "hsl(0, 0%, 20%)",
+        "usage": "Borders, dividers"
+      },
+      "lightGray": {
+        "hex": "#999999",
+        "rgb": "rgb(153, 153, 153)",
+        "hsl": "hsl(0, 0%, 60%)",
+        "usage": "Body text, descriptions"
+      },
+      "white": {
+        "hex": "#FFFFFF",
+        "rgb": "rgb(255, 255, 255)",
+        "hsl": "hsl(0, 0%, 100%)",
+        "usage": "Headings, primary text"
+      }
+    },
+    "gradients": {
+      "hero": "linear-gradient(135deg, #F2B24C 0%, #883DF5 50%, #C0151A 100%)",
+      "accent": "linear-gradient(90deg, #883DF5 0%, #F2B24C 100%)",
+      "subtle": "linear-gradient(180deg, #141414 0%, #1F1F1F 100%)",
+      "text": "linear-gradient(to right, #F2B24C, #883DF5, #C0151A)"
+    }
+  },
+  "typography": {
+    "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    "scale": {
+      "display": {
+        "size": "72px / 4.5rem",
+        "sizeMobile": "48px / 3rem",
+        "weight": 900,
+        "lineHeight": 1.1,
+        "letterSpacing": "-0.02em"
+      },
+      "h1": {
+        "size": "56px / 3.5rem",
+        "sizeMobile": "40px / 2.5rem",
+        "weight": 900,
+        "lineHeight": 1.2,
+        "letterSpacing": "-0.01em"
+      },
+      "h2": {
+        "size": "40px / 2.5rem",
+        "sizeMobile": "32px / 2rem",
+        "weight": 900,
+        "lineHeight": 1.3
+      },
+      "h3": {
+        "size": "24px / 1.5rem",
+        "weight": 700,
+        "lineHeight": 1.4
+      },
+      "bodyLarge": {
+        "size": "20px / 1.25rem",
+        "weight": 400,
+        "lineHeight": 1.6,
+        "color": "#999999"
+      },
+      "bodyRegular": {
+        "size": "16px / 1rem",
+        "weight": 400,
+        "lineHeight": 1.6,
+        "color": "#999999"
+      },
+      "bodySmall": {
+        "size": "14px / 0.875rem",
+        "weight": 400,
+        "lineHeight": 1.5,
+        "color": "#999999"
+      }
+    }
+  },
+  "spacing": {
+    "baseUnit": "4px",
+    "scale": {
+      "1": "4px",
+      "2": "8px",
+      "3": "12px",
+      "4": "16px",
+      "5": "20px",
+      "6": "24px",
+      "8": "32px",
+      "10": "40px",
+      "12": "48px",
+      "16": "64px",
+      "20": "80px",
+      "24": "96px",
+      "32": "128px"
+    },
+    "components": {
+      "cardPadding": "32px",
+      "cardGap": "32px",
+      "sectionPaddingMobile": "64px",
+      "sectionPaddingDesktop": "96px",
+      "buttonPadding": "12px 32px",
+      "buttonPaddingLarge": "16px 48px"
+    }
+  },
+  "borderRadius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "xl": "16px",
+    "2xl": "24px",
+    "full": "9999px"
+  },
+  "shadows": {
+    "soft": "0 2px 8px rgba(242, 178, 76, 0.1)",
+    "medium": "0 4px 16px rgba(136, 61, 245, 0.2)",
+    "strong": "0 8px 32px rgba(192, 21, 26, 0.3)",
+    "glowOrange": "0 0 20px rgba(242, 178, 76, 0.4)",
+    "glowPurple": "0 0 20px rgba(136, 61, 245, 0.4)",
+    "glowRed": "0 0 20px rgba(192, 21, 26, 0.4)",
+    "glowCombined": "0 0 20px rgba(242, 178, 76, 0.4), 0 0 40px rgba(136, 61, 245, 0.2)"
+  },
+  "animations": {
+    "timingFunctions": {
+      "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+      "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+      "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "easeBounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+    },
+    "durations": {
+      "fast": "150ms",
+      "normal": "300ms",
+      "slow": "500ms",
+      "slower": "800ms"
+    },
+    "keyframes": {
+      "fadeIn": "fade-in 0.6s ease-out",
+      "fadeInDelay": "fade-in-delay 0.8s ease-out",
+      "scaleIn": "scale-in 0.4s ease-out",
+      "slideInRight": "slide-in-right 0.5s ease-out",
+      "slideInLeft": "slide-in-left 0.5s ease-out",
+      "float": "float 3s ease-in-out infinite",
+      "pulse": "pulse 2s ease-in-out infinite"
+    }
+  },
+  "breakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px",
+    "2xl": "1536px"
+  },
+  "buttons": {
+    "primary": {
+      "background": "#883DF5",
+      "color": "#FFFFFF",
+      "shadow": "0 4px 12px rgba(136, 61, 245, 0.4)",
+      "hoverShadow": "0 6px 20px rgba(136, 61, 245, 0.6)"
+    },
+    "secondary": {
+      "background": "#F2B24C",
+      "color": "#141414",
+      "shadow": "0 4px 12px rgba(242, 178, 76, 0.4)",
+      "hoverShadow": "0 6px 20px rgba(242, 178, 76, 0.6)"
+    },
+    "outline": {
+      "background": "transparent",
+      "color": "#F2B24C",
+      "border": "2px solid #F2B24C",
+      "hoverBackground": "#F2B24C",
+      "hoverColor": "#141414"
+    },
+    "ghost": {
+      "background": "transparent",
+      "color": "#FFFFFF",
+      "hoverBackground": "rgba(255, 255, 255, 0.1)",
+      "hoverColor": "#F2B24C"
+    }
+  },
+  "cards": {
+    "standard": {
+      "background": "#1F1F1F",
+      "border": "1px solid #333333",
+      "borderRadius": "16px",
+      "padding": "32px",
+      "hoverBorderColor": "#F2B24C",
+      "hoverShadow": "0 8px 32px rgba(242, 178, 76, 0.3)"
+    },
+    "feature": {
+      "background": "#1F1F1F",
+      "border": "1px solid #333333",
+      "borderRadius": "16px",
+      "padding": "32px",
+      "hoverBorderColor": "#883DF5",
+      "hoverShadow": "0 8px 32px rgba(136, 61, 245, 0.3)"
+    },
+    "portfolio": {
+      "background": "#1F1F1F",
+      "border": "1px solid #333333",
+      "borderRadius": "16px",
+      "hoverBorderColor": "#F2B24C",
+      "hoverShadow": "0 8px 32px rgba(242, 178, 76, 0.3)",
+      "imageScale": "1.1"
+    }
+  },
+  "forms": {
+    "input": {
+      "background": "#141414",
+      "border": "1px solid #333333",
+      "borderRadius": "8px",
+      "padding": "12px 16px",
+      "color": "#FFFFFF",
+      "focusBorderColor": "#F2B24C",
+      "focusShadow": "0 0 0 3px rgba(242, 178, 76, 0.1)"
+    },
+    "textarea": {
+      "background": "#141414",
+      "border": "1px solid #333333",
+      "borderRadius": "8px",
+      "padding": "12px 16px",
+      "color": "#FFFFFF",
+      "minHeight": "120px",
+      "focusBorderColor": "#F2B24C",
+      "focusShadow": "0 0 0 3px rgba(242, 178, 76, 0.1)"
+    },
+    "select": {
+      "background": "#141414",
+      "border": "1px solid #333333",
+      "borderRadius": "8px",
+      "padding": "12px 16px",
+      "color": "#FFFFFF",
+      "focusBorderColor": "#883DF5",
+      "focusShadow": "0 0 0 3px rgba(136, 61, 245, 0.1)"
+    },
+    "label": {
+      "color": "#FFFFFF",
+      "fontSize": "14px",
+      "fontWeight": 600,
+      "marginBottom": "8px"
+    }
+  },
+  "badges": {
+    "orange": {
+      "background": "rgba(242, 178, 76, 0.1)",
+      "color": "#F2B24C",
+      "border": "1px solid rgba(242, 178, 76, 0.3)"
+    },
+    "purple": {
+      "background": "rgba(136, 61, 245, 0.1)",
+      "color": "#883DF5",
+      "border": "1px solid rgba(136, 61, 245, 0.3)"
+    },
+    "red": {
+      "background": "rgba(192, 21, 26, 0.1)",
+      "color": "#C0151A",
+      "border": "1px solid rgba(192, 21, 26, 0.3)"
+    }
+  },
+  "icons": {
+    "sizes": {
+      "small": "16px",
+      "medium": "24px",
+      "large": "32px",
+      "xl": "48px"
+    },
+    "colors": {
+      "primary": "#F2B24C",
+      "secondary": "#883DF5",
+      "accent": "#C0151A",
+      "neutral": "#FFFFFF"
+    }
+  },
+  "accessibility": {
+    "contrastRatios": {
+      "whiteOnBlack": "15.3:1",
+      "orangeOnBlack": "5.2:1",
+      "purpleOnBlack": "4.8:1"
+    },
+    "focusOutline": "2px solid #F2B24C",
+    "focusOutlineOffset": "2px",
+    "minTouchTarget": "44px"
+  }
+}

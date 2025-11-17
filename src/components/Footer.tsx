@@ -5,66 +5,64 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-secondary-foreground">
+    <footer className="bg-[hsl(0_0%_8%)] border-t border-[hsl(0_0%_20%)]">
       <div className="container mx-auto px-4 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="text-2xl font-bold bg-gradient-accent bg-clip-text text-transparent">
-                Rendr
-              </div>
-              <div className="text-2xl font-light">Media</div>
+            <div className="text-2xl md:text-3xl font-black tracking-wider">
+              <span className="text-gradient">REND</span>
+              <span className="text-white"> R</span>
             </div>
-            <p className="text-sm text-secondary-foreground/80">
-              Passion Rendered for Your Brand. We bring creative visions to life through design, branding, and digital marketing.
+            <p className="text-sm text-[hsl(var(--rendr-gray))]">
+              Passion Rendered for Your Brand. Bold creativity that makes an impact.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-secondary-foreground/10 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                className="w-10 h-10 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-orange))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(242,178,76,0.3)]"
               >
-                <Instagram size={20} />
+                <Instagram size={18} className="text-white" />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-secondary-foreground/10 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                className="w-10 h-10 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-purple))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(136,61,245,0.3)]"
               >
-                <Linkedin size={20} />
+                <Linkedin size={18} className="text-white" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold text-white mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors">
+                <Link to="/" className="text-sm text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-orange))] transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/portfolio" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors">
+                <Link to="/portfolio" className="text-sm text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-orange))] transition-colors">
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors">
+                <Link to="/services" className="text-sm text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-orange))] transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors">
+                <Link to="/about" className="text-sm text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-orange))] transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors">
+                <Link to="/contact" className="text-sm text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-orange))] transition-colors">
                   Contact
                 </Link>
               </li>
@@ -73,35 +71,35 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-bold text-white mb-4">Services</h3>
             <ul className="space-y-2">
-              <li className="text-sm text-secondary-foreground/80">Branding & Identity</li>
-              <li className="text-sm text-secondary-foreground/80">UI/UX Design</li>
-              <li className="text-sm text-secondary-foreground/80">Video Production</li>
-              <li className="text-sm text-secondary-foreground/80">Photography</li>
-              <li className="text-sm text-secondary-foreground/80">Digital Marketing</li>
-              <li className="text-sm text-secondary-foreground/80">Social Media</li>
+              <li className="text-sm text-[hsl(var(--rendr-gray))]">Branding & Identity</li>
+              <li className="text-sm text-[hsl(var(--rendr-gray))]">Graphic Design</li>
+              <li className="text-sm text-[hsl(var(--rendr-gray))]">Photography</li>
+              <li className="text-sm text-[hsl(var(--rendr-gray))]">Videography</li>
+              <li className="text-sm text-[hsl(var(--rendr-gray))]">UI/UX Design</li>
+              <li className="text-sm text-[hsl(var(--rendr-gray))]">Digital Marketing</li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
+            <h3 className="text-lg font-bold text-white mb-4">Get in Touch</h3>
             <ul className="space-y-3">
-              <li className="flex items-start space-x-3 text-sm text-secondary-foreground/80">
-                <MapPin size={18} className="mt-0.5 flex-shrink-0" />
-                <span>Mumbai, Maharashtra, India</span>
+              <li className="flex items-start space-x-3 text-sm text-[hsl(var(--rendr-gray))]">
+                <MapPin size={18} className="mt-0.5 flex-shrink-0 text-[hsl(var(--rendr-purple))]" />
+                <span>123 Creative Street, Design City, DC 12345</span>
               </li>
-              <li className="flex items-center space-x-3 text-sm text-secondary-foreground/80">
-                <Mail size={18} className="flex-shrink-0" />
-                <a href="mailto:hello@rendrmedia.com" className="hover:text-primary transition-colors">
+              <li className="flex items-center space-x-3 text-sm text-[hsl(var(--rendr-gray))]">
+                <Mail size={18} className="flex-shrink-0 text-[hsl(var(--rendr-orange))]" />
+                <a href="mailto:hello@rendrmedia.com" className="hover:text-[hsl(var(--rendr-orange))] transition-colors">
                   hello@rendrmedia.com
                 </a>
               </li>
-              <li className="flex items-center space-x-3 text-sm text-secondary-foreground/80">
-                <Phone size={18} className="flex-shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-primary transition-colors">
-                  +91 98765 43210
+              <li className="flex items-center space-x-3 text-sm text-[hsl(var(--rendr-gray))]">
+                <Phone size={18} className="flex-shrink-0 text-[hsl(var(--rendr-red))]" />
+                <a href="tel:+15551234567" className="hover:text-[hsl(var(--rendr-orange))] transition-colors">
+                  +1 (555) 123-4567
                 </a>
               </li>
             </ul>
@@ -109,16 +107,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-secondary-foreground/20">
+        <div className="mt-12 pt-8 border-t border-[hsl(0_0%_20%)]">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-secondary-foreground/60">
+            <p className="text-sm text-[hsl(var(--rendr-gray))]">
               © {currentYear} Rendr Media. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors">
+              <a href="#" className="text-sm text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-orange))] transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-sm text-secondary-foreground/60 hover:text-primary transition-colors">
+              <a href="#" className="text-sm text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-orange))] transition-colors">
                 Terms of Service
               </a>
             </div>

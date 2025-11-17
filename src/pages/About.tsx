@@ -1,186 +1,133 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Target, Heart, Zap, Users } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Users, Target, Zap, Award } from "lucide-react";
 
 const About = () => {
-  const values = [
-    {
-      icon: Target,
-      title: "Excellence",
-      description: "We strive for perfection in every project, delivering quality that exceeds expectations."
-    },
-    {
-      icon: Heart,
-      title: "Passion",
-      description: "Our love for creativity drives us to explore new ideas and push creative boundaries."
-    },
-    {
-      icon: Zap,
-      title: "Innovation",
-      description: "We embrace cutting-edge tools and techniques to stay ahead in the creative industry."
-    },
-    {
-      icon: Users,
-      title: "Collaboration",
-      description: "We believe in working closely with clients to bring their vision to life."
-    },
-  ];
-
-  const stats = [
-    { number: "200+", label: "Projects Completed" },
-    { number: "150+", label: "Happy Clients" },
-    { number: "5+", label: "Years of Excellence" },
-    { number: "15+", label: "Team Members" },
-  ];
-
-  const team = [
-    {
-      name: "Arjun Sharma",
-      role: "Founder & Creative Director",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    },
-    {
-      name: "Priya Patel",
-      role: "Brand Strategist",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-    },
-    {
-      name: "Rahul Verma",
-      role: "Lead Designer",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    },
-    {
-      name: "Sneha Reddy",
-      role: "Video Production Head",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-    },
-  ];
-
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            About <span className="bg-gradient-accent bg-clip-text text-transparent">Rendr Media</span>
+      {/* Header */}
+      <section className="py-16 bg-gradient-to-br from-[hsl(var(--rendr-black))] to-[hsl(0_0%_12%)]">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-7xl font-black mb-6 animate-fade-in">
+            <span className="text-white">About</span> <span className="text-gradient">Rendr Media</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Where passion meets creativity to render extraordinary brand experiences
+          <p className="text-xl text-[hsl(var(--rendr-gray))] max-w-3xl mx-auto animate-fade-in-delay">
+            We're a bold, energetic creative agency that turns passion into powerful brand experiences
           </p>
         </div>
+      </section>
 
-        {/* Story Section */}
-        <section className="mb-20 animate-fade-in-delay">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  Founded in 2019, Rendr Media began with a simple mission: to help brands tell their stories through powerful visual content. What started as a small design studio has grown into a full-service creative agency.
-                </p>
-                <p>
-                  We've worked with startups, established businesses, and everything in between, helping them build memorable brands and connect with their audiences in meaningful ways.
-                </p>
-                <p>
-                  Our team of passionate creators, strategists, and storytellers brings diverse perspectives and expertise to every project. We don't just create content—we craft experiences that leave lasting impressions.
-                </p>
-              </div>
+      {/* Story Section */}
+      <section className="py-16 bg-[hsl(var(--rendr-black))]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center space-x-3 mb-8">
+              <div className="w-1 h-16 bg-[hsl(var(--rendr-orange))]"></div>
+              <h2 className="text-4xl md:text-5xl font-black text-white">Our Story</h2>
             </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-strong">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" 
-                alt="Team collaboration"
-                className="w-full h-full object-cover"
-              />
+            <div className="space-y-6 text-lg text-[hsl(var(--rendr-gray))] leading-relaxed pl-7">
+              <p>
+                Rendr Media was born from a simple belief: creativity should be bold, energetic, and unforgettable.
+                We're not just another creative agency—we're your partners in making brands that stand out.
+              </p>
+              <p>
+                From startups to established brands, we've helped countless clients transform their vision into
+                reality through striking visuals, strategic thinking, and relentless passion for great work.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Stats */}
-        <section className="mb-20 animate-fade-in">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-2">
-                  {stat.number}
+      {/* Values Section */}
+      <section className="py-16 bg-gradient-to-b from-[hsl(var(--rendr-black))] to-[hsl(0_0%_12%)]">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-4">
+              <span className="text-white">What We</span> <span className="text-gradient">Stand For</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                icon: <Zap className="w-10 h-10" />,
+                title: "Bold Creativity",
+                description: "We push boundaries and create work that demands attention",
+                color: "orange",
+              },
+              {
+                icon: <Target className="w-10 h-10" />,
+                title: "Strategic Thinking",
+                description: "Every creative decision is backed by strategy and purpose",
+                color: "purple",
+              },
+              {
+                icon: <Users className="w-10 h-10" />,
+                title: "Client Partnership",
+                description: "Your success is our success—we're in this together",
+                color: "red",
+              },
+              {
+                icon: <Award className="w-10 h-10" />,
+                title: "Excellence",
+                description: "We deliver nothing less than exceptional quality",
+                color: "orange",
+              },
+            ].map((value, index) => (
+              <div
+                key={index}
+                className="text-center p-6 rounded-2xl bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-${value.color}))] transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className={`text-[hsl(var(--rendr-${value.color}))] mb-4 flex justify-center`}>
+                  {value.icon}
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <h3 className="text-xl font-bold text-white mb-2">{value.title}</h3>
+                <p className="text-[hsl(var(--rendr-gray))]">{value.description}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Values */}
-        <section className="mb-20">
-          <h2 className="text-4xl font-bold text-center mb-12 animate-fade-in">
-            Our <span className="bg-gradient-accent bg-clip-text text-transparent">Values</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <Card 
-                key={index} 
-                className="text-center group hover:shadow-strong transition-all duration-300 hover:-translate-y-2 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-8">
-                  <div className="mb-4 inline-flex p-4 bg-gradient-accent rounded-xl text-white group-hover:shadow-glow transition-all duration-300">
-                    <value.icon size={32} />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
-                </CardContent>
-              </Card>
+      {/* Stats Section */}
+      <section className="py-16 bg-[hsl(var(--rendr-black))]">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {[
+              { number: "200+", label: "Projects Completed" },
+              { number: "50+", label: "Happy Clients" },
+              { number: "15+", label: "Awards Won" },
+              { number: "5+", label: "Years Experience" },
+            ].map((stat, index) => (
+              <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="text-5xl md:text-6xl font-black text-gradient mb-2">{stat.number}</div>
+                <div className="text-[hsl(var(--rendr-gray))] font-medium">{stat.label}</div>
+              </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Team */}
-        <section className="mb-20">
-          <h2 className="text-4xl font-bold text-center mb-12 animate-fade-in">
-            Meet Our <span className="bg-gradient-accent bg-clip-text text-transparent">Team</span>
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-[hsl(var(--rendr-purple))]/10 to-[hsl(var(--rendr-orange))]/10">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-black mb-6">
+            <span className="text-white">Ready to Work</span> <span className="text-gradient">Together?</span>
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
-              <Card 
-                key={index} 
-                className="group hover:shadow-strong transition-all duration-300 hover:-translate-y-2 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardContent className="p-0">
-                  <div className="relative h-72 overflow-hidden rounded-t-lg">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6 text-center">
-                    <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                    <Badge variant="secondary">{member.role}</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Clients Section */}
-        <section className="py-16 px-8 bg-gradient-subtle rounded-2xl text-center animate-fade-in">
-          <h2 className="text-4xl font-bold mb-8">
-            Trusted by <span className="bg-gradient-accent bg-clip-text text-transparent">Amazing Brands</span>
-          </h2>
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            We've had the privilege of working with innovative startups, established brands, and creative entrepreneurs across various industries.
+          <p className="text-xl text-[hsl(var(--rendr-gray))] mb-8 max-w-2xl mx-auto">
+            Let's create something bold and unforgettable for your brand
           </p>
-          <div className="flex flex-wrap justify-center gap-8 items-center opacity-60">
-            {["Brand A", "Brand B", "Brand C", "Brand D", "Brand E"].map((brand, index) => (
-              <div key={index} className="text-2xl font-bold text-muted-foreground">
-                {brand}
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
+          <Button
+            asChild
+            size="lg"
+            className="bg-[hsl(var(--rendr-purple))] hover:bg-[hsl(var(--rendr-purple))]/90 text-white font-bold text-lg px-12 py-6 shadow-[0_8px_24px_rgba(136,61,245,0.5)]"
+          >
+            <Link to="/contact">Start Your Project</Link>
+          </Button>
+        </div>
+      </section>
     </div>
   );
 };

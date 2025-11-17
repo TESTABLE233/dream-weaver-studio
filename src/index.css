@@ -2,6 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* Rendr Media Brand Colors */
+    --rendr-orange: 35 85% 62%; /* #F2B24C - Warm Orange */
+    --rendr-purple: 262 89% 60%; /* #883DF5 - Vibrant Purple */
+    --rendr-red: 356 78% 42%; /* #C0151A - Deep Red */
+    --rendr-black: 0 0% 8%; /* #141414 - Off-Black */
+    --rendr-gray: 0 0% 60%; /* #999999 - Supporting Gray */
+    
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: var(--rendr-orange);
+    --primary-foreground: 0 0% 10%;
+    --primary-glow: 35 85% 62%;
+    --secondary: var(--rendr-purple);
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+    --accent: var(--rendr-purple);
+    --accent-foreground: 0 0% 98%;
+    --destructive: var(--rendr-red);
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: var(--rendr-orange);
+    --radius: 0.5rem;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--rendr-orange)) 0%, hsl(var(--rendr-purple)) 50%, hsl(var(--rendr-red)) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(var(--rendr-purple)) 0%, hsl(var(--rendr-orange)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--rendr-black)) 0%, hsl(0 0% 12%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 8px rgba(242, 178, 76, 0.1);
+    --shadow-medium: 0 4px 16px rgba(136, 61, 245, 0.2);
+    --shadow-strong: 0 8px 32px rgba(192, 21, 26, 0.3);
+    --shadow-glow: 0 0 20px rgba(242, 178, 76, 0.4), 0 0 40px rgba(136, 61, 245, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[hsl(var(--rendr-orange))] via-[hsl(var(--rendr-purple))] to-[hsl(var(--rendr-red))] bg-clip-text text-transparent;
+  }
+  
+  .border-gradient {
+    border-image: linear-gradient(90deg, hsl(var(--rendr-orange)), hsl(var(--rendr-purple)), hsl(var(--rendr-red))) 1;
+  }
+  
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(242, 178, 76, 0.4);
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(136, 61, 245, 0.4);
+  }
+  
+  .glow-red {
+    box-shadow: 0 0 20px rgba(192, 21, 26, 0.4);
+  }
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */

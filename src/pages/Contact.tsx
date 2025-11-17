@@ -1,241 +1,340 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    serviceType: "",
+    budget: "",
+    timeline: "",
+    description: "",
+  });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. We'll get back to you within 24 hours.",
-      });
-      setIsSubmitting(false);
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const services = [
-    "Branding & Identity",
-    "UI/UX Design",
-    "Video Production",
-    "Photography",
-    "Digital Marketing",
-    "Social Media Management",
-    "Other"
-  ];
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically send the data to your backend
+    console.log("Form submitted:", formData);
+    toast.success("Thank you! We'll get back to you within 24 hours.", {
+      description: "Your project enquiry has been received.",
+    });
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      serviceType: "",
+      budget: "",
+      timeline: "",
+      description: "",
+    });
+    setStep(1);
+  };
+
+  const nextStep = () => {
+    if (step === 1 && (!formData.name || !formData.email || !formData.phone)) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+    if (step === 2 && (!formData.serviceType || !formData.budget)) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+    setStep(step + 1);
+  };
+
+  const prevStep = () => setStep(step - 1);
 
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            Let's Create Something <span className="bg-gradient-accent bg-clip-text text-transparent">Amazing</span>
+      {/* Header */}
+      <section className="py-16 bg-gradient-to-br from-[hsl(var(--rendr-black))] to-[hsl(0_0%_12%)]">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-7xl font-black mb-6 animate-fade-in">
+            <span className="text-white">Let's</span> <span className="text-gradient">Connect</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Tell us about your project and let's bring your vision to life
+          <p className="text-xl text-[hsl(var(--rendr-gray))] max-w-3xl mx-auto animate-fade-in-delay">
+            Ready to bring your vision to life? Get in touch and let's create something amazing
           </p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Info Cards */}
-          <div className="space-y-6 animate-fade-in-delay">
-            <Card className="group hover:shadow-strong transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-gradient-accent rounded-lg text-white group-hover:shadow-glow transition-all duration-300">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold mb-2">Email Us</h3>
-                    <a href="mailto:hello@rendrmedia.com" className="text-muted-foreground hover:text-primary transition-colors">
-                      hello@rendrmedia.com
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-strong transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-gradient-accent rounded-lg text-white group-hover:shadow-glow transition-all duration-300">
-                    <Phone size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold mb-2">Call Us</h3>
-                    <a href="tel:+919876543210" className="text-muted-foreground hover:text-primary transition-colors">
-                      +91 98765 43210
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-strong transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-gradient-accent rounded-lg text-white group-hover:shadow-glow transition-all duration-300">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold mb-2">Visit Us</h3>
-                    <p className="text-muted-foreground">
-                      Mumbai, Maharashtra<br />
-                      India
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Additional Info */}
-            <Card className="bg-gradient-hero text-white border-none">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-3">Quick Response Time</h3>
-                <p className="text-white/90 mb-4">
-                  We typically respond within 2 hours during business hours (Mon-Sat, 10 AM - 7 PM IST).
+      <section className="py-16 bg-[hsl(var(--rendr-black))]">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Contact Info */}
+            <div className="space-y-8 animate-fade-in">
+              <div>
+                <h2 className="text-3xl font-black text-white mb-6">Get in Touch</h2>
+                <p className="text-lg text-[hsl(var(--rendr-gray))] mb-8">
+                  Have a project in mind? Fill out the form and we'll get back to you within 24 hours.
                 </p>
-                <p className="text-sm text-white/80">
-                  For urgent inquiries, please call us directly.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
 
-          {/* Contact Form */}
-          <div className="lg:col-span-2 animate-fade-in">
-            <Card>
-              <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Your Name *</Label>
-                      <Input 
-                        id="name" 
-                        placeholder="John Doe" 
-                        required 
-                        className="border-border focus:ring-primary"
-                      />
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-lg bg-[hsl(var(--rendr-orange))]/10 border border-[hsl(var(--rendr-orange))]/30 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-[hsl(var(--rendr-orange))]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white mb-1">Email</h3>
+                    <p className="text-[hsl(var(--rendr-gray))]">hello@rendrmedia.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-lg bg-[hsl(var(--rendr-purple))]/10 border border-[hsl(var(--rendr-purple))]/30 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-[hsl(var(--rendr-purple))]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white mb-1">Phone</h3>
+                    <p className="text-[hsl(var(--rendr-gray))]">+1 (555) 123-4567</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-lg bg-[hsl(var(--rendr-red))]/10 border border-[hsl(var(--rendr-red))]/30 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-[hsl(var(--rendr-red))]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white mb-1">Location</h3>
+                    <p className="text-[hsl(var(--rendr-gray))]">123 Creative Street, Design City, DC 12345</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div className="pt-8">
+                <h3 className="text-lg font-bold text-white mb-4">Follow Us</h3>
+                <div className="flex space-x-4">
+                  {["Instagram", "LinkedIn", "Twitter", "Facebook"].map((social) => (
+                    <a
+                      key={social}
+                      href="#"
+                      className="w-12 h-12 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-orange))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(242,178,76,0.3)]"
+                    >
+                      <span className="text-white text-sm font-bold">{social[0]}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Multi-Step Form */}
+            <div className="bg-[hsl(0_0%_12%)] rounded-2xl p-8 border border-[hsl(0_0%_20%)] animate-fade-in-delay">
+              {/* Progress Indicator */}
+              <div className="flex items-center justify-between mb-8">
+                {[1, 2, 3].map((s) => (
+                  <div key={s} className="flex items-center flex-1">
+                    <div
+                      className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${
+                        step >= s
+                          ? "bg-[hsl(var(--rendr-purple))] text-white"
+                          : "bg-[hsl(0_0%_20%)] text-[hsl(var(--rendr-gray))]"
+                      }`}
+                    >
+                      {s}
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input 
-                        id="email" 
-                        type="email" 
-                        placeholder="john@example.com" 
+                    {s < 3 && (
+                      <div
+                        className={`flex-1 h-1 mx-2 transition-all duration-300 ${
+                          step > s ? "bg-[hsl(var(--rendr-purple))]" : "bg-[hsl(0_0%_20%)]"
+                        }`}
+                      ></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Step 1: Basic Info */}
+                {step === 1 && (
+                  <div className="space-y-4 animate-fade-in">
+                    <h3 className="text-2xl font-bold text-white mb-4">Your Information</h3>
+                    
+                    <div>
+                      <Label htmlFor="name" className="text-white">Name *</Label>
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => handleInputChange("name", e.target.value)}
+                        className="bg-[hsl(0_0%_8%)] border-[hsl(0_0%_30%)] text-white focus:border-[hsl(var(--rendr-orange))] focus:ring-[hsl(var(--rendr-orange))]"
                         required
-                        className="border-border focus:ring-primary"
                       />
                     </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input 
-                        id="phone" 
-                        type="tel" 
-                        placeholder="+91 98765 43210"
-                        className="border-border focus:ring-primary"
+                    <div>
+                      <Label htmlFor="email" className="text-white">Email *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        className="bg-[hsl(0_0%_8%)] border-[hsl(0_0%_30%)] text-white focus:border-[hsl(var(--rendr-orange))] focus:ring-[hsl(var(--rendr-orange))]"
+                        required
                       />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="company">Company / Brand</Label>
-                      <Input 
-                        id="company" 
-                        placeholder="Your Company"
-                        className="border-border focus:ring-primary"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="service">Service Needed *</Label>
-                      <Select required>
-                        <SelectTrigger id="service" className="border-border">
+                    <div>
+                      <Label htmlFor="phone" className="text-white">Phone *</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange("phone", e.target.value)}
+                        className="bg-[hsl(0_0%_8%)] border-[hsl(0_0%_30%)] text-white focus:border-[hsl(var(--rendr-orange))] focus:ring-[hsl(var(--rendr-orange))]"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="company" className="text-white">Company/Brand</Label>
+                      <Input
+                        id="company"
+                        value={formData.company}
+                        onChange={(e) => handleInputChange("company", e.target.value)}
+                        className="bg-[hsl(0_0%_8%)] border-[hsl(0_0%_30%)] text-white focus:border-[hsl(var(--rendr-orange))] focus:ring-[hsl(var(--rendr-orange))]"
+                      />
+                    </div>
+
+                    <Button
+                      type="button"
+                      onClick={nextStep}
+                      className="w-full bg-[hsl(var(--rendr-purple))] hover:bg-[hsl(var(--rendr-purple))]/90 text-white font-bold"
+                    >
+                      Next Step
+                    </Button>
+                  </div>
+                )}
+
+                {/* Step 2: Project Details */}
+                {step === 2 && (
+                  <div className="space-y-4 animate-fade-in">
+                    <h3 className="text-2xl font-bold text-white mb-4">Project Details</h3>
+                    
+                    <div>
+                      <Label htmlFor="serviceType" className="text-white">Service Type *</Label>
+                      <Select value={formData.serviceType} onValueChange={(value) => handleInputChange("serviceType", value)}>
+                        <SelectTrigger className="bg-[hsl(0_0%_8%)] border-[hsl(0_0%_30%)] text-white">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent>
-                          {services.map((service) => (
-                            <SelectItem key={service} value={service.toLowerCase()}>
-                              {service}
-                            </SelectItem>
-                          ))}
+                          <SelectItem value="branding">Branding & Identity</SelectItem>
+                          <SelectItem value="design">Graphic Design</SelectItem>
+                          <SelectItem value="photography">Photography</SelectItem>
+                          <SelectItem value="videography">Videography</SelectItem>
+                          <SelectItem value="uiux">UI/UX Design</SelectItem>
+                          <SelectItem value="marketing">Digital Marketing</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="budget">Budget Range</Label>
-                      <Select>
-                        <SelectTrigger id="budget" className="border-border">
+
+                    <div>
+                      <Label htmlFor="budget" className="text-white">Budget Range *</Label>
+                      <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
+                        <SelectTrigger className="bg-[hsl(0_0%_8%)] border-[hsl(0_0%_30%)] text-white">
                           <SelectValue placeholder="Select budget range" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="under-50k">Under ₹50,000</SelectItem>
-                          <SelectItem value="50k-1l">₹50,000 - ₹1,00,000</SelectItem>
-                          <SelectItem value="1l-3l">₹1,00,000 - ₹3,00,000</SelectItem>
-                          <SelectItem value="3l-plus">₹3,00,000+</SelectItem>
+                          <SelectItem value="under-5k">Under $5,000</SelectItem>
+                          <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
+                          <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
+                          <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
+                          <SelectItem value="50k-plus">$50,000+</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="timeline">Project Timeline</Label>
-                    <Select>
-                      <SelectTrigger id="timeline" className="border-border">
-                        <SelectValue placeholder="When do you need this?" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="urgent">Urgent (Within 2 weeks)</SelectItem>
-                        <SelectItem value="1-month">1 Month</SelectItem>
-                        <SelectItem value="2-3-months">2-3 Months</SelectItem>
-                        <SelectItem value="flexible">Flexible</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                    <div>
+                      <Label htmlFor="timeline" className="text-white">Timeline</Label>
+                      <Select value={formData.timeline} onValueChange={(value) => handleInputChange("timeline", value)}>
+                        <SelectTrigger className="bg-[hsl(0_0%_8%)] border-[hsl(0_0%_30%)] text-white">
+                          <SelectValue placeholder="Select timeline" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="urgent">ASAP (1-2 weeks)</SelectItem>
+                          <SelectItem value="soon">Soon (1 month)</SelectItem>
+                          <SelectItem value="flexible">Flexible (2-3 months)</SelectItem>
+                          <SelectItem value="planning">Just Planning</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Project Details *</Label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Tell us about your project, goals, and any specific requirements..."
-                      rows={6}
-                      required
-                      className="border-border focus:ring-primary resize-none"
-                    />
+                    <div className="flex space-x-4">
+                      <Button
+                        type="button"
+                        onClick={prevStep}
+                        variant="outline"
+                        className="flex-1 border-[hsl(0_0%_30%)] text-white hover:bg-[hsl(0_0%_20%)]"
+                      >
+                        Back
+                      </Button>
+                      <Button
+                        type="button"
+                        onClick={nextStep}
+                        className="flex-1 bg-[hsl(var(--rendr-purple))] hover:bg-[hsl(var(--rendr-purple))]/90 text-white font-bold"
+                      >
+                        Next Step
+                      </Button>
+                    </div>
                   </div>
+                )}
 
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className="w-full bg-gradient-accent hover:shadow-glow text-lg py-6 h-auto"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    <Send className="ml-2" size={20} />
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                {/* Step 3: Project Description */}
+                {step === 3 && (
+                  <div className="space-y-4 animate-fade-in">
+                    <h3 className="text-2xl font-bold text-white mb-4">Tell Us More</h3>
+                    
+                    <div>
+                      <Label htmlFor="description" className="text-white">Project Description</Label>
+                      <Textarea
+                        id="description"
+                        value={formData.description}
+                        onChange={(e) => handleInputChange("description", e.target.value)}
+                        rows={6}
+                        placeholder="Tell us about your project, goals, and vision..."
+                        className="bg-[hsl(0_0%_8%)] border-[hsl(0_0%_30%)] text-white focus:border-[hsl(var(--rendr-orange))] focus:ring-[hsl(var(--rendr-orange))]"
+                      />
+                    </div>
+
+                    <div className="flex space-x-4">
+                      <Button
+                        type="button"
+                        onClick={prevStep}
+                        variant="outline"
+                        className="flex-1 border-[hsl(0_0%_30%)] text-white hover:bg-[hsl(0_0%_20%)]"
+                      >
+                        Back
+                      </Button>
+                      <Button
+                        type="submit"
+                        className="flex-1 bg-[hsl(var(--rendr-purple))] hover:bg-[hsl(var(--rendr-purple))]/90 text-white font-bold shadow-[0_8px_24px_rgba(136,61,245,0.5)] group"
+                      >
+                        <span>Submit Enquiry</span>
+                        <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

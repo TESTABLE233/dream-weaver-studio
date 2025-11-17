@@ -1,129 +1,136 @@
-export interface PortfolioProject {
+export interface PortfolioItem {
   id: string;
   title: string;
-  client: string;
   category: string;
-  coverImage: string;
   description: string;
-  fullDescription: string;
-  goal: string;
-  deliverables: string[];
-  tools: string[];
+  client: string;
+  date: string;
+  coverImage: string;
   images: string[];
-  datePublished: string;
+  tools: string[];
+  challenge: string;
+  solution: string;
+  results: string[];
 }
 
-export const portfolioProjects: PortfolioProject[] = [
-  {
-    id: "brand-fusion-cafe",
-    title: "Fusion Cafe Branding",
-    client: "Fusion Cafe",
-    category: "Branding",
-    coverImage: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop",
-    description: "Complete brand identity for a modern fusion restaurant",
-    fullDescription: "Created a vibrant brand identity that celebrates the fusion of flavors and cultures. The project encompassed logo design, menu layouts, packaging, and social media templates.",
-    goal: "Establish a memorable brand presence that appeals to millennials and food enthusiasts",
-    deliverables: ["Logo & Brand Guidelines", "Menu Design", "Packaging Design", "Social Media Templates", "Signage"],
-    tools: ["Adobe Illustrator", "Adobe Photoshop", "Figma"],
-    images: [
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1559827221-3d1a9c5b0137?w=1200&h=800&fit=crop",
-    ],
-    datePublished: "2024-10-15",
-  },
-  {
-    id: "techstart-ui",
-    title: "TechStart App Interface",
-    client: "TechStart Inc",
-    category: "UI/UX",
-    coverImage: "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=800&h=600&fit=crop",
-    description: "Mobile app design for a tech startup platform",
-    fullDescription: "Designed a clean, modern interface for a startup networking platform. Focus on user-friendly navigation and seamless onboarding experience.",
-    goal: "Create an intuitive app that connects startups with investors",
-    deliverables: ["User Flow", "Wireframes", "High-Fidelity Mockups", "Prototype", "Design System"],
-    tools: ["Figma", "Adobe XD", "Principle"],
-    images: [
-      "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=800&fit=crop",
-    ],
-    datePublished: "2024-09-20",
-  },
-  {
-    id: "summer-fest-video",
-    title: "Summer Music Festival",
-    client: "Summer Beats",
-    category: "Video",
-    coverImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop",
-    description: "Event coverage and promotional video for music festival",
-    fullDescription: "Captured the energy and excitement of a 3-day music festival with cinematic videography and dynamic editing.",
-    goal: "Create compelling content to promote future events and showcase artist performances",
-    deliverables: ["Event Coverage", "Promotional Video", "Social Media Clips", "Artist Interviews"],
-    tools: ["Sony A7S III", "DJI Drone", "Premiere Pro", "After Effects"],
-    images: [
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1200&h=800&fit=crop",
-    ],
-    datePublished: "2024-08-10",
-  },
-  {
-    id: "eco-brand-campaign",
-    title: "EcoGreen Campaign",
-    client: "EcoGreen Products",
-    category: "Marketing",
-    coverImage: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&h=600&fit=crop",
-    description: "Digital marketing campaign for sustainable products",
-    fullDescription: "Developed a comprehensive digital marketing strategy focused on sustainability and eco-conscious consumers.",
-    goal: "Increase brand awareness and drive online sales by 40%",
-    deliverables: ["Social Media Strategy", "Ad Creatives", "Email Campaigns", "Landing Pages", "Analytics"],
-    tools: ["Meta Ads Manager", "Google Ads", "Mailchimp", "Canva Pro"],
-    images: [
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1200&h=800&fit=crop",
-    ],
-    datePublished: "2024-11-05",
-  },
-  {
-    id: "fashion-photoshoot",
-    title: "Urban Fashion Collection",
-    client: "StreetStyle Co",
-    category: "Photography",
-    coverImage: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=600&fit=crop",
-    description: "Editorial photoshoot for urban fashion brand",
-    fullDescription: "Shot an editorial lookbook showcasing the brand's new urban collection across various city locations.",
-    goal: "Create striking visuals that embody urban culture and street fashion",
-    deliverables: ["Lookbook Photography", "Product Photos", "Lifestyle Shots", "Social Media Content"],
-    tools: ["Canon EOS R5", "Profoto Lighting", "Lightroom", "Photoshop"],
-    images: [
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&h=800&fit=crop",
-    ],
-    datePublished: "2024-07-22",
-  },
-  {
-    id: "social-media-fitness",
-    title: "FitLife Social Strategy",
-    client: "FitLife Gym",
-    category: "Social Media",
-    coverImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
-    description: "Social media management and content creation",
-    fullDescription: "Managed comprehensive social media presence with engaging content, community building, and influencer partnerships.",
-    goal: "Grow Instagram following by 200% and increase gym memberships",
-    deliverables: ["Content Calendar", "Daily Posts", "Reels & Stories", "Community Management", "Influencer Collabs"],
-    tools: ["Later", "Canva", "CapCut", "Instagram Insights"],
-    images: [
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&h=800&fit=crop",
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=800&fit=crop",
-    ],
-    datePublished: "2024-10-01",
-  },
-];
-
-export const categories = [
+export const portfolioCategories = [
   "All",
   "Branding",
-  "UI/UX",
-  "Video",
+  "Design",
   "Photography",
-  "Marketing",
+  "Videography",
   "Social Media",
+  "UI/UX",
+  "Advertising",
+];
+
+export const portfolioItems: PortfolioItem[] = [
+  {
+    id: "tech-startup-branding",
+    title: "Tech Startup Brand Identity",
+    category: "Branding",
+    description: "Complete brand identity for an innovative AI startup",
+    client: "TechVision AI",
+    date: "2024-10",
+    coverImage: "/placeholder.svg",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    tools: ["Adobe Illustrator", "Figma", "After Effects"],
+    challenge: "Create a modern, trustworthy brand identity for an AI company entering a competitive market",
+    solution: "Developed a bold, futuristic visual language with clean typography and dynamic color gradients",
+    results: [
+      "40% increase in brand recognition",
+      "Featured in TechCrunch",
+      "Successfully raised Series A funding",
+    ],
+  },
+  {
+    id: "festival-campaign",
+    title: "College Fest Campaign",
+    category: "Social Media",
+    description: "Viral social media campaign for annual college festival",
+    client: "University Cultural Fest",
+    date: "2024-09",
+    coverImage: "/placeholder.svg",
+    images: ["/placeholder.svg", "/placeholder.svg"],
+    tools: ["Photoshop", "Premiere Pro", "Instagram"],
+    challenge: "Generate buzz and drive ticket sales for a college cultural festival",
+    solution: "Created engaging social media content with bold visuals and interactive stories",
+    results: [
+      "2M+ impressions across platforms",
+      "Sold out in 3 days",
+      "30% increase in attendance",
+    ],
+  },
+  {
+    id: "restaurant-photography",
+    title: "Fine Dining Photography",
+    category: "Photography",
+    description: "Mouth-watering food photography for upscale restaurant",
+    client: "Gourmet Kitchen",
+    date: "2024-08",
+    coverImage: "/placeholder.svg",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    tools: ["Canon EOS R5", "Lightroom", "Photoshop"],
+    challenge: "Capture the essence and quality of fine dining experience",
+    solution: "Professional food styling and lighting to showcase culinary artistry",
+    results: [
+      "Menu redesign with new photos",
+      "50% increase in Instagram engagement",
+      "Featured in local food magazine",
+    ],
+  },
+  {
+    id: "product-launch-video",
+    title: "Product Launch Video",
+    category: "Videography",
+    description: "High-energy product reveal video for tech gadget",
+    client: "SmartGadget Co",
+    date: "2024-07",
+    coverImage: "/placeholder.svg",
+    images: ["/placeholder.svg", "/placeholder.svg"],
+    tools: ["RED Camera", "DaVinci Resolve", "Cinema 4D"],
+    challenge: "Create excitement around a new product launch",
+    solution: "Cinematic video with dynamic transitions and product showcases",
+    results: [
+      "1M+ views in first week",
+      "Featured on tech blogs",
+      "Pre-orders exceeded targets by 200%",
+    ],
+  },
+  {
+    id: "ecommerce-ui-redesign",
+    title: "E-commerce UI Redesign",
+    category: "UI/UX",
+    description: "Modern, conversion-focused redesign of online store",
+    client: "Fashion Forward",
+    date: "2024-06",
+    coverImage: "/placeholder.svg",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    tools: ["Figma", "React", "Tailwind CSS"],
+    challenge: "Improve user experience and increase conversion rates",
+    solution: "Streamlined checkout process with bold visuals and intuitive navigation",
+    results: [
+      "35% increase in conversion rate",
+      "25% reduction in cart abandonment",
+      "Improved mobile experience",
+    ],
+  },
+  {
+    id: "billboard-campaign",
+    title: "Billboard Advertising Campaign",
+    category: "Advertising",
+    description: "Eye-catching outdoor advertising for local business",
+    client: "City Fitness Center",
+    date: "2024-05",
+    coverImage: "/placeholder.svg",
+    images: ["/placeholder.svg", "/placeholder.svg"],
+    tools: ["Photoshop", "Illustrator", "InDesign"],
+    challenge: "Stand out in busy urban environment and drive gym memberships",
+    solution: "Bold typography and striking visuals with clear call-to-action",
+    results: [
+      "60% increase in walk-in inquiries",
+      "500+ new memberships in 2 months",
+      "Extended campaign by 6 months",
+    ],
+  },
 ];
