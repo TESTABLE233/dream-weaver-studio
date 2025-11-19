@@ -24,25 +24,55 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", formData);
-    toast.success("Thank you! We'll get back to you within 24 hours.", {
-      description: "Your project enquiry has been received.",
-    });
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      serviceType: "",
-      budget: "",
-      timeline: "",
-      description: "",
-    });
-    setStep(1);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE"
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service_type: formData.serviceType,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          message: formData.description,
+          subject: "New Project Enquiry from Rendr Media Website",
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Thank you! We'll get back to you within 24 hours.", {
+          description: "Your project enquiry has been received.",
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          serviceType: "",
+          budget: "",
+          timeline: "",
+          description: "",
+        });
+        setStep(1);
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast.error("Failed to send message. Please try again.");
+    }
   };
 
   const nextStep = () => {
