@@ -299,7 +299,8 @@ const Contact = () => {
                           <SelectItem value="photography">Photography</SelectItem>
                           <SelectItem value="videography">Videography</SelectItem>
                           <SelectItem value="uiux">UI/UX Design</SelectItem>
-                          <SelectItem value="marketing">Digital Marketing</SelectItem>
+                          <SelectItem value="event-management">🎯 Event Management</SelectItem>
+                          <SelectItem value="sound-light">Sound & Light Production</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>

@@ -79,8 +79,7 @@ const Footer = () => {
               <li className="text-sm text-[hsl(var(--rendr-gray))]">Photography</li>
               <li className="text-sm text-[hsl(var(--rendr-gray))]">Videography</li>
               <li className="text-sm text-[hsl(var(--rendr-gray))]">UI/UX Design</li>
-              <li className="text-sm text-[hsl(var(--rendr-gray))]">Digital Marketing</li>
-              <li className="text-sm text-[hsl(var(--rendr-gray))]">Event Management</li>
+              <li className="text-sm text-[hsl(var(--rendr-gray))]">🎯 Event Management</li>
               <li className="text-sm text-[hsl(var(--rendr-gray))]">Sound & Light Production</li>
             </ul>
           </div>

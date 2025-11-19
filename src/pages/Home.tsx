@@ -101,8 +101,8 @@ const Home = () => {
               },
               {
                 icon: <Sparkles className="w-12 h-12" />,
-                title: "Digital Marketing",
-                description: "Strategic campaigns that drive results and grow your brand",
+                title: "🎯 Event Management",
+                description: "Comprehensive event planning and memorable experiences",
                 color: "red",
               },
             ].map((service, index) => (

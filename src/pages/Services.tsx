@@ -69,17 +69,30 @@ const services = [
     color: "purple",
   },
   {
-    icon: <Megaphone className="w-12 h-12" />,
-    title: "Digital Marketing",
-    description: "Strategic campaigns that drive results and grow your brand",
+    icon: <Sparkles className="w-12 h-12" />,
+    title: "🎯 Event Management",
+    description: "Comprehensive event planning and execution that creates memorable experiences",
     features: [
-      "Social Media Management",
-      "Content Strategy",
-      "Advertising Campaigns",
-      "Email Marketing",
-      "Analytics & Reporting",
+      "Event Planning & Coordination",
+      "Venue Selection & Management",
+      "Vendor Coordination",
+      "Timeline & Budget Management",
+      "On-site Event Support",
     ],
     color: "red",
+  },
+  {
+    icon: <Megaphone className="w-12 h-12" />,
+    title: "Sound & Light Production",
+    description: "Professional audio-visual solutions for impactful events and productions",
+    features: [
+      "Sound System Setup",
+      "Lighting Design & Installation",
+      "Stage & Backdrop Design",
+      "Technical Support",
+      "Equipment Rental",
+    ],
+    color: "orange",
   },
 ];
 
