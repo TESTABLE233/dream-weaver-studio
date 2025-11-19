@@ -82,9 +82,9 @@
     <script>
         // Initialize Supabase client
         const SUPABASE_URL = 'https://umdehtiieszcbfdhdtgx.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVtZGVodGlpZXN6Y2JmZGhkdGd4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1MzA1MjAsImV4cCI6MjA3OTEwNjUyMH0.MChKSEm-TdbqLYnsRLO_2Jx_YEZwBDZ0XXbWXf1ByNg';
+        const SUPABASE_SERVICE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVtZGVodGlpZXN6Y2JmZGhkdGd4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MzUzMDUyMCwiZXhwIjoyMDc5MTA2NTIwfQ.nkWvxNrBCBnyFN572b8aU3Xbtp-SUWva1c9FYNdszvg';
         
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_SERVICE_KEY);
 
         async function testConnection() {
             const result = document.getElementById('connectionResult');

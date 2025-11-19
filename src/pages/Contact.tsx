@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase";
 
 const Contact = () => {
   const [step, setStep] = useState(1);
@@ -54,7 +54,7 @@ const Contact = () => {
 
       // Try to save to Supabase (optional - won't fail if it doesn't work)
       try {
-        const { data: supabaseData, error: supabaseError } = await supabase
+        const { data: supabaseData, error: supabaseError } = await supabaseAdmin
           .from('contact_submissions')
           .insert([
             {
