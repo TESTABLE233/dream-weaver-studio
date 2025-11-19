@@ -20,7 +20,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/rendr_media?igsh=MTZ3dmVvdXBoNDNyNg=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-orange))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(242,178,76,0.3)]"
@@ -28,7 +28,7 @@ const Footer = () => {
                 <Instagram size={18} className="text-white" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/rendrmedia2025"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-purple))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(136,61,245,0.3)]"
@@ -80,6 +80,8 @@ const Footer = () => {
               <li className="text-sm text-[hsl(var(--rendr-gray))]">Videography</li>
               <li className="text-sm text-[hsl(var(--rendr-gray))]">UI/UX Design</li>
               <li className="text-sm text-[hsl(var(--rendr-gray))]">Digital Marketing</li>
+              <li className="text-sm text-[hsl(var(--rendr-gray))]">Event Management</li>
+              <li className="text-sm text-[hsl(var(--rendr-gray))]">Sound & Light Production</li>
             </ul>
           </div>
 
@@ -89,18 +91,18 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-3 text-sm text-[hsl(var(--rendr-gray))]">
                 <MapPin size={18} className="mt-0.5 flex-shrink-0 text-[hsl(var(--rendr-purple))]" />
-                <span>123 Creative Street, Design City, DC 12345</span>
+                <span>Soorya P-8,Vishwambharan Rd, Pappanamcode, Trivandrum</span>
               </li>
               <li className="flex items-center space-x-3 text-sm text-[hsl(var(--rendr-gray))]">
                 <Mail size={18} className="flex-shrink-0 text-[hsl(var(--rendr-orange))]" />
-                <a href="mailto:hello@rendrmedia.com" className="hover:text-[hsl(var(--rendr-orange))] transition-colors">
-                  hello@rendrmedia.com
+                <a href="mailto:rendrmedia2025@gmail.com" className="hover:text-[hsl(var(--rendr-orange))] transition-colors">
+                  rendrmedia2025@gmail.com
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-sm text-[hsl(var(--rendr-gray))]">
                 <Phone size={18} className="flex-shrink-0 text-[hsl(var(--rendr-red))]" />
-                <a href="tel:+15551234567" className="hover:text-[hsl(var(--rendr-orange))] transition-colors">
-                  +1 (555) 123-4567
+                <a href="tel:+919562842489" className="hover:text-[hsl(var(--rendr-orange))] transition-colors">
+                  +91 (956) 284-2489
                 </a>
               </li>
             </ul>
