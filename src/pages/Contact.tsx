@@ -75,10 +75,23 @@ const Contact = () => {
 
       const emailData = await response.json();
 
-      if (emailData.success || supabaseData) {
+      // Check if either Supabase OR email succeeded
+      const supabaseSuccess = supabaseData && !supabaseError;
+      const emailSuccess = emailData.success;
+
+      if (supabaseSuccess || emailSuccess) {
         toast.success("Thank you! We'll get back to you within 24 hours.", {
           description: "Your project enquiry has been received.",
         });
+        
+        // Log success details
+        console.log("Submission successful:", {
+          supabase: supabaseSuccess ? "✅" : "❌",
+          email: emailSuccess ? "✅" : "❌",
+          supabaseData,
+          supabaseError
+        });
+        
         // Reset form
         setFormData({
           name: "",
@@ -92,6 +105,7 @@ const Contact = () => {
         });
         setStep(1);
       } else {
+        console.error("Both submissions failed:", { supabaseError, emailData });
         toast.error("Something went wrong. Please try again.");
       }
     } catch (error) {
