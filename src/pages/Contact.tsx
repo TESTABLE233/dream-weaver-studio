@@ -29,30 +29,7 @@ const Contact = () => {
     e.preventDefault();
     
     try {
-      // 1. Save to Supabase database
-      const { data: supabaseData, error: supabaseError } = await supabase
-        .from('contact_submissions')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            service_type: formData.serviceType,
-            budget: formData.budget,
-            timeline: formData.timeline,
-            description: formData.description,
-            status: 'new'
-          }
-        ])
-        .select();
-
-      if (supabaseError) {
-        console.error("Supabase error:", supabaseError);
-        // Continue anyway to send email
-      }
-
-      // 2. Send email notification via Web3Forms
+      // Send email notification via Web3Forms (reliable)
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -75,21 +52,37 @@ const Contact = () => {
 
       const emailData = await response.json();
 
-      // Check if either Supabase OR email succeeded
-      const supabaseSuccess = supabaseData && !supabaseError;
-      const emailSuccess = emailData.success;
+      // Try to save to Supabase (optional - won't fail if it doesn't work)
+      try {
+        const { data: supabaseData, error: supabaseError } = await supabase
+          .from('contact_submissions')
+          .insert([
+            {
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone,
+              company: formData.company,
+              service_type: formData.serviceType,
+              budget: formData.budget,
+              timeline: formData.timeline,
+              description: formData.description,
+              status: 'new'
+            }
+          ])
+          .select();
 
-      if (supabaseSuccess || emailSuccess) {
+        if (supabaseError) {
+          console.warn("Supabase save failed (but email sent):", supabaseError);
+        } else {
+          console.log("✅ Saved to Supabase:", supabaseData);
+        }
+      } catch (supabaseErr) {
+        console.warn("Supabase error (but email sent):", supabaseErr);
+      }
+
+      if (emailData.success) {
         toast.success("Thank you! We'll get back to you within 24 hours.", {
           description: "Your project enquiry has been received.",
-        });
-        
-        // Log success details
-        console.log("Submission successful:", {
-          supabase: supabaseSuccess ? "✅" : "❌",
-          email: emailSuccess ? "✅" : "❌",
-          supabaseData,
-          supabaseError
         });
         
         // Reset form
@@ -105,7 +98,6 @@ const Contact = () => {
         });
         setStep(1);
       } else {
-        console.error("Both submissions failed:", { supabaseError, emailData });
         toast.error("Something went wrong. Please try again.");
       }
     } catch (error) {

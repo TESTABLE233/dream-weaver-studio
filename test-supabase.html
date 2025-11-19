@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Supabase Connection</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        button {
+            background: #883DF5;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #7030d0;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Supabase Connection</h1>
+    
+    <div class="test-box">
+        <h2>Step 1: Test Connection</h2>
+        <button onclick="testConnection()">Test Connection</button>
+        <div id="connectionResult" class="result"></div>
+    </div>
+
+    <div class="test-box">
+        <h2>Step 2: Insert Test Data</h2>
+        <button onclick="insertTestData()">Insert Test Submission</button>
+        <div id="insertResult" class="result"></div>
+    </div>
+
+    <div class="test-box">
+        <h2>Step 3: View All Data</h2>
+        <button onclick="viewAllData()">View All Submissions</button>
+        <div id="viewResult" class="result"></div>
+    </div>
+
+    <script>
+        // Initialize Supabase client
+        const SUPABASE_URL = 'https://umdehtiieszcbfdhdtgx.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVtZGVodGlpZXN6Y2JmZGhkdGd4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1MzA1MjAsImV4cCI6MjA3OTEwNjUyMH0.MChKSEm-TdbqLYnsRLO_2Jx_YEZwBDZ0XXbWXf1ByNg';
+        
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function testConnection() {
+            const result = document.getElementById('connectionResult');
+            result.style.display = 'block';
+            result.className = 'result';
+            result.innerHTML = 'Testing connection...';
+
+            try {
+                // Try to query the table
+                const { data, error } = await supabase
+                    .from('contact_submissions')
+                    .select('count');
+
+                if (error) {
+                    result.className = 'result error';
+                    result.innerHTML = `
+                        <strong>❌ Connection Failed</strong><br>
+                        Error: ${error.message}<br>
+                        <small>Code: ${error.code}</small><br>
+                        <small>Details: ${error.details}</small><br>
+                        <small>Hint: ${error.hint}</small>
+                    `;
+                } else {
+                    result.className = 'result success';
+                    result.innerHTML = `
+                        <strong>✅ Connection Successful!</strong><br>
+                        Supabase is connected and working.<br>
+                        Table exists and is accessible.
+                    `;
+                }
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `
+                    <strong>❌ Error</strong><br>
+                    ${error.message}
+                `;
+            }
+        }
+
+        async function insertTestData() {
+            const result = document.getElementById('insertResult');
+            result.style.display = 'block';
+            result.className = 'result';
+            result.innerHTML = 'Inserting test data...';
+
+            try {
+                const { data, error } = await supabase
+                    .from('contact_submissions')
+                    .insert([
+                        {
+                            name: 'Test User',
+                            email: 'test@example.com',
+                            phone: '+1234567890',
+                            company: 'Test Company',
+                            service_type: 'Branding',
+                            budget: '$10,000 - $25,000',
+                            timeline: 'Soon (1 month)',
+                            description: 'This is a test submission from the test page.',
+                            status: 'new'
+                        }
+                    ])
+                    .select();
+
+                if (error) {
+                    result.className = 'result error';
+                    result.innerHTML = `
+                        <strong>❌ Insert Failed</strong><br>
+                        Error: ${error.message}<br>
+                        <small>Code: ${error.code}</small><br>
+                        <small>Details: ${error.details}</small><br>
+                        <small>Hint: ${error.hint}</small>
+                    `;
+                } else {
+                    result.className = 'result success';
+                    result.innerHTML = `
+                        <strong>✅ Data Inserted Successfully!</strong><br>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                        <small>Go to Supabase dashboard to see the data!</small>
+                    `;
+                }
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `
+                    <strong>❌ Error</strong><br>
+                    ${error.message}
+                `;
+            }
+        }
+
+        async function viewAllData() {
+            const result = document.getElementById('viewResult');
+            result.style.display = 'block';
+            result.className = 'result';
+            result.innerHTML = 'Loading data...';
+
+            try {
+                const { data, error } = await supabase
+                    .from('contact_submissions')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) {
+                    result.className = 'result error';
+                    result.innerHTML = `
+                        <strong>❌ Query Failed</strong><br>
+                        Error: ${error.message}<br>
+                        <small>Code: ${error.code}</small>
+                    `;
+                } else if (data.length === 0) {
+                    result.className = 'result';
+                    result.innerHTML = `
+                        <strong>📭 No Data Found</strong><br>
+                        The table is empty. Try inserting test data first.
+                    `;
+                } else {
+                    result.className = 'result success';
+                    result.innerHTML = `
+                        <strong>✅ Found ${data.length} submission(s)</strong><br>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                }
+            } catch (error) {
+                result.className = 'result error';
+                result.innerHTML = `
+                    <strong>❌ Error</strong><br>
+                    ${error.message}
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
