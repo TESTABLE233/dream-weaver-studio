@@ -35,11 +35,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="text-2xl md:text-3xl font-black tracking-wider">
-              <span className="text-gradient">REND</span>
-              <span className="text-white"> R</span>
-            </div>
+          <Link to="/" className="flex items-center space-x-3 group">
+            <img 
+              src="/logo.png" 
+              alt="Rendr Media Logo" 
+              className="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}

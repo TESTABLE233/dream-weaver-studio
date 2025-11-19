@@ -10,10 +10,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="text-2xl md:text-3xl font-black tracking-wider">
-              <span className="text-gradient">REND</span>
-              <span className="text-white"> R</span>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Rendr Media Logo" 
+              className="h-10 w-auto"
+            />
             <p className="text-sm text-[hsl(var(--rendr-gray))]">
               Passion Rendered for Your Brand. Bold creativity that makes an impact.
             </p>
