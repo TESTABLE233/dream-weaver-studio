@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const Contact = () => {
   const [step, setStep] = useState(1);
@@ -28,6 +29,30 @@ const Contact = () => {
     e.preventDefault();
     
     try {
+      // 1. Save to Supabase database
+      const { data: supabaseData, error: supabaseError } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            service_type: formData.serviceType,
+            budget: formData.budget,
+            timeline: formData.timeline,
+            description: formData.description,
+            status: 'new'
+          }
+        ])
+        .select();
+
+      if (supabaseError) {
+        console.error("Supabase error:", supabaseError);
+        // Continue anyway to send email
+      }
+
+      // 2. Send email notification via Web3Forms
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -48,9 +73,9 @@ const Contact = () => {
         }),
       });
 
-      const data = await response.json();
+      const emailData = await response.json();
 
-      if (data.success) {
+      if (emailData.success || supabaseData) {
         toast.success("Thank you! We'll get back to you within 24 hours.", {
           description: "Your project enquiry has been received.",
         });
