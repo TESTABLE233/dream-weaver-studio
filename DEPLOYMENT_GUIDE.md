@@ -81,7 +81,6 @@ git add .
 
 # Commit
 git commit -m "Initial commit - Rendr Media website"
-
 # Create a new repo on GitHub, then:
 git remote add origin https://github.com/YOUR_USERNAME/rendr-media.git
 git branch -M main
