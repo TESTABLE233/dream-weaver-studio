@@ -27,12 +27,19 @@ const About = () => {
             </div>
             <div className="space-y-6 text-lg text-[hsl(var(--rendr-gray))] leading-relaxed pl-7">
               <p>
-                Rendr Media was born from a simple belief: creativity should be bold, energetic, and unforgettable.
-                We're not just another creative agency—we're your partners in making brands that stand out.
+                Rendr Media was born with one goal, to make creativity immersive.
               </p>
               <p>
-                From startups to established brands, we've helped countless clients transform their vision into
-                reality through striking visuals, strategic thinking, and relentless passion for great work.
+                We live at the crossroads of art, storytelling, and experience, where every project 
+                becomes more than a deliverable,it becomes a memory.
+              </p>
+              <p>
+               Whether it’s shaping identities, orchestrating moments, or producing visuals that speak
+              louder than words, our team thrives on turning imagination into impact.
+              </p>
+              <p>
+                At Rendr, every story is staged, designed, and rendered with intent—
+                bold, seamless, and unforgettable.
               </p>
             </div>
           </div>
@@ -96,9 +103,9 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {[
-              { number: "200+", label: "Projects Completed" },
-              { number: "50+", label: "Happy Clients" },
-              { number: "15+", label: "Awards Won" },
+              { number: "50+", label: "Projects Completed" },
+              { number: "100+", label: "Happy Clients" },
+              { number: "15+", label: "Stories Crafted" },
               { number: "5+", label: "Years Experience" },
             ].map((stat, index) => (
               <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
