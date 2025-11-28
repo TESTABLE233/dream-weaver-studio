@@ -68,7 +68,8 @@ const Portfolio = () => {
                 tags: ["Creative Direction", "Management", "SOPs"],
                 bio: "Leads Rendr's vision and end-to-end creative direction, aligning teams, SOPs, and client outcomes.",
                 img: "/portfolio/Rizan Amani.jpg",
-                badge: "CEO"
+                badge: "CEO",
+                phone: "+91 9562842489"
               },
               {
                 name: "Sreerag N",
@@ -76,7 +77,8 @@ const Portfolio = () => {
                 tags: ["Production", "Photography", "Videography"],
                 bio: "Owns the technical heartbeat—camera systems, production workflows, and delivery quality.",
                 img: "/portfolio/Sreerag N.JPG",
-                badge: "CTO"
+                badge: "CTO",
+                phone: "+91 9567563944"
               },
               {
                 name: "N Najma Sulthana",
@@ -84,7 +86,8 @@ const Portfolio = () => {
                 tags: ["Finance", "PR", "Outreach"],
                 bio: "Oversees finance and external relations—public relations, inquiries, partnerships, and outreach.",
                 img: "/portfolio/N Najma Sulthana.jpg",
-                badge: "CFO"
+                badge: "CFO",
+                phone: "+91 9633893065"
               }
             ].map((member, index) => (
               <article
@@ -121,13 +124,13 @@ const Portfolio = () => {
                     ))}
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-[hsl(var(--rendr-gray))]">{member.bio}</p>
-                  <div className="mt-4 flex items-center gap-3">
+                  <div className="mt-4 flex items-center gap-2">
                     <a
-                      href="mailto:rendrmedia2025@gmail.com"
-                      aria-label={`Contact ${member.name}`}
-                      className="text-xs text-[hsl(var(--rendr-orange))] hover:text-[hsl(var(--rendr-orange))]/80 underline-offset-4 hover:underline transition-colors"
+                      href={`tel:${member.phone}`}
+                      aria-label={`Call ${member.name}`}
+                      className="text-xs text-[hsl(var(--rendr-orange))] hover:text-[hsl(var(--rendr-orange))]/80 font-medium transition-colors"
                     >
-                      Contact
+                      📞 {member.phone}
                     </a>
                   </div>
                 </div>
