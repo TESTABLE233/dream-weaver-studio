@@ -153,7 +153,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white mb-1">Email</h3>
-                    <p className="text-[hsl(var(--rendr-gray))]">hello@rendrmedia.com</p>
+                    <a href="mailto:rendrmedia2025@gmail.com" className="text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-orange))] transition-colors">
+                      rendrmedia2025@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -163,7 +165,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white mb-1">Phone</h3>
-                    <p className="text-[hsl(var(--rendr-gray))]">+1 (555) 123-4567</p>
+                    <a href="tel:+919562842489" className="text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-purple))] transition-colors">
+                      +91 (956) 284-2489
+                    </a>
                   </div>
                 </div>
 
@@ -173,7 +177,10 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white mb-1">Location</h3>
-                    <p className="text-[hsl(var(--rendr-gray))]">123 Creative Street, Design City, DC 12345</p>
+                    <p className="text-[hsl(var(--rendr-gray))]">
+                      Soorya P-8, Vishwambharan Rd,<br />
+                      Pappanamcode, Trivandrum
+                    </p>
                   </div>
                 </div>
               </div>
@@ -182,15 +189,24 @@ const Contact = () => {
               <div className="pt-8">
                 <h3 className="text-lg font-bold text-white mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
-                  {["Instagram", "LinkedIn", "Twitter", "Facebook"].map((social) => (
-                    <a
-                      key={social}
-                      href="#"
-                      className="w-12 h-12 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-orange))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(242,178,76,0.3)]"
-                    >
-                      <span className="text-white text-sm font-bold">{social[0]}</span>
-                    </a>
-                  ))}
+                  <a
+                    href="https://www.instagram.com/rendr_media?igsh=MTZ3dmVvdXBoNDNyNg=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-orange))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(242,178,76,0.3)]"
+                    aria-label="Instagram"
+                  >
+                    <span className="text-white text-sm font-bold">IG</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/rendrmedia2025"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-purple))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(136,61,245,0.3)]"
+                    aria-label="LinkedIn"
+                  >
+                    <span className="text-white text-sm font-bold">LI</span>
+                  </a>
                 </div>
               </div>
             </div>

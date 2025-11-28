@@ -70,15 +70,26 @@ const PortfolioDetail = () => {
         </div>
       </section>
 
-      {/* Cover Image */}
+      {/* Cover Media */}
       <section className="py-8 bg-[hsl(var(--rendr-black))]">
         <div className="container mx-auto px-4">
           <div className="rounded-2xl overflow-hidden border border-[hsl(0_0%_20%)] shadow-[0_8px_32px_rgba(136,61,245,0.2)] animate-scale-in">
-            <img
-              src={project.coverImage}
-              alt={project.title}
-              className="w-full aspect-video object-cover"
-            />
+            {project.coverType === "video" ? (
+              <video
+                src={project.coverImage}
+                controls
+                className="w-full aspect-video object-cover"
+                poster={project.coverImage.replace(/\.(mp4|MP4|mov|MOV)$/, '.png')}
+              >
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                src={project.coverImage}
+                alt={project.title}
+                className="w-full aspect-video object-cover"
+              />
+            )}
           </div>
         </div>
       </section>
@@ -128,23 +139,34 @@ const PortfolioDetail = () => {
             </div>
 
             {/* Gallery */}
-            {project.images.length > 0 && (
+            {project.media.length > 0 && (
               <div>
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="w-1 h-12 bg-[hsl(var(--rendr-purple))]"></div>
                   <h2 className="text-3xl md:text-4xl font-black text-white">Project Gallery</h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-6 pl-7">
-                  {project.images.map((image, index) => (
+                  {project.media.map((mediaItem, index) => (
                     <div
                       key={index}
                       className="rounded-xl overflow-hidden border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-purple))] transition-all duration-300"
                     >
-                      <img
-                        src={image}
-                        alt={`${project.title} - Image ${index + 1}`}
-                        className="w-full aspect-video object-cover hover:scale-105 transition-transform duration-500"
-                      />
+                      {mediaItem.type === "video" ? (
+                        <video
+                          src={mediaItem.url}
+                          controls
+                          className="w-full aspect-video object-cover"
+                          poster={mediaItem.thumbnail}
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        <img
+                          src={mediaItem.url}
+                          alt={`${project.title} - Image ${index + 1}`}
+                          className="w-full aspect-video object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                      )}
                     </div>
                   ))}
                 </div>

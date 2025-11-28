@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Users, Target, Zap, Award } from "lucide-react";
+import { Users, Target, Zap, Award, Mail, Phone, MapPin } from "lucide-react";
 
 const About = () => {
   return (
@@ -117,22 +115,76 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Contact Section */}
       <section className="py-16 bg-gradient-to-br from-[hsl(var(--rendr-purple))]/10 to-[hsl(var(--rendr-orange))]/10">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            <span className="text-white">Ready to Work</span> <span className="text-gradient">Together?</span>
-          </h2>
-          <p className="text-xl text-[hsl(var(--rendr-gray))] mb-8 max-w-2xl mx-auto">
-            Let's create something bold and unforgettable for your brand
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-[hsl(var(--rendr-purple))] hover:bg-[hsl(var(--rendr-purple))]/90 text-white font-bold text-lg px-12 py-6 shadow-[0_8px_24px_rgba(136,61,245,0.5)]"
-          >
-            <Link to="/contact">Start Your Project</Link>
-          </Button>
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-black mb-6">
+                <span className="text-white">Get in</span> <span className="text-gradient">Touch</span>
+              </h2>
+              <p className="text-xl text-[hsl(var(--rendr-gray))] max-w-2xl mx-auto">
+                Let's create something bold and unforgettable for your brand
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center p-6 bg-[hsl(0_0%_12%)] rounded-2xl border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-orange))] transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-[hsl(var(--rendr-orange))]/10 border border-[hsl(var(--rendr-orange))]/30 flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-6 h-6 text-[hsl(var(--rendr-orange))]" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">Email</h3>
+                <a href="mailto:rendrmedia2025@gmail.com" className="text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-orange))] transition-colors text-sm">
+                  rendrmedia2025@gmail.com
+                </a>
+              </div>
+
+              <div className="text-center p-6 bg-[hsl(0_0%_12%)] rounded-2xl border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-purple))] transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-[hsl(var(--rendr-purple))]/10 border border-[hsl(var(--rendr-purple))]/30 flex items-center justify-center mx-auto mb-4">
+                  <Phone className="w-6 h-6 text-[hsl(var(--rendr-purple))]" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">Phone</h3>
+                <a href="tel:+919562842489" className="text-[hsl(var(--rendr-gray))] hover:text-[hsl(var(--rendr-purple))] transition-colors text-sm">
+                  +91 (956) 284-2489
+                </a>
+              </div>
+
+              <div className="text-center p-6 bg-[hsl(0_0%_12%)] rounded-2xl border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-red))] transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-[hsl(var(--rendr-red))]/10 border border-[hsl(var(--rendr-red))]/30 flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-6 h-6 text-[hsl(var(--rendr-red))]" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">Location</h3>
+                <p className="text-[hsl(var(--rendr-gray))] text-sm">
+                  Soorya P-8, Vishwambharan Rd,<br />
+                  Pappanamcode, Trivandrum
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <h3 className="text-lg font-bold text-white mb-4">Follow Us</h3>
+              <div className="flex justify-center space-x-4">
+                <a
+                  href="https://www.instagram.com/rendr_media?igsh=MTZ3dmVvdXBoNDNyNg=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-orange))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(242,178,76,0.3)]"
+                  aria-label="Instagram"
+                >
+                  <span className="text-white text-sm font-bold">IG</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/rendrmedia2025"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-lg bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] hover:border-[hsl(var(--rendr-purple))] flex items-center justify-center transition-all duration-300 hover:shadow-[0_4px_16px_rgba(136,61,245,0.3)]"
+                  aria-label="LinkedIn"
+                >
+                  <span className="text-white text-sm font-bold">LI</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
