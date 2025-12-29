@@ -19,6 +19,8 @@ export default defineConfig(({ mode }) => ({
     outDir: "dist",
     assetsDir: "assets",
     sourcemap: false,
+    minify: "esbuild",
+    target: "es2020",
     rollupOptions: {
       output: {
         manualChunks: {
@@ -27,5 +29,8 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
+  },
+  esbuild: {
+    target: "es2020",
   },
 }));
