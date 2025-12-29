@@ -1,12 +1,15 @@
 name = "rendr-media"
 compatibility_date = "2024-12-29"
 
-[env.production]
-routes = [
-  { pattern = "rendrmedia.info/*", zone_name = "rendrmedia.info" },
-  { pattern = "www.rendrmedia.info/*", zone_name = "rendrmedia.info" }
-]
+[build]
+command = "npm run build"
+cwd = "."
+watch_dir = "src"
 
-[[env.production.services]]
-binding = "ASSETS"
-service = "rendr-media"
+[build.upload]
+format = "modules"
+dir = "dist"
+main = "./index.html"
+
+[[pages_build_output_dir]]
+value = "dist"
