@@ -1,0 +1,12 @@
+name = "rendr-media"
+compatibility_date = "2024-12-29"
+
+[env.production]
+routes = [
+  { pattern = "rendrmedia.info/*", zone_name = "rendrmedia.info" },
+  { pattern = "www.rendrmedia.info/*", zone_name = "rendrmedia.info" }
+]
+
+[[env.production.services]]
+binding = "ASSETS"
+service = "rendr-media"
